@@ -3,6 +3,6 @@ file = data\combined\IR.wav 						# if not live input read in from this file
 
 # classification
 
-model:chain = gemaps								# name of chain
+model:chain = IS13									# name of chain
 model:type = linsvm									# model type
 
