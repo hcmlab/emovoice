@@ -1,0 +1,8 @@
+live = false 										# $(bool) use live input from a microphone
+file = data\combined\IR.wav 						# if not live input read in from this file
+
+# classification
+
+model:chain = gemaps								# name of chain
+model:type = linsvm									# model type
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<trainer ssi-v="5">
+    <info trained="false" seed="1234"/>
+	<register>
+		<item name="libsvm"/>		
+	</register>	
+    <samples n_streams="1" balance="under"/>		
+    <normalize>
+        <item method="Scale" stream="0"/>
+    </normalize>
+    <model create="LibSVM" stream="0" option="age.svm" />
+</trainer>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<options>
+    <item name="svm" type="INT" num="1" value="0" lock="false" help="SVM type ( C-SVC=0, nu-SVC=1)" />
+    <item name="kernel" type="INT" num="1" value="0" lock="false" help="Kernel type ( 0=linear: u'*v, 1=polynomial: (gamma*u'*v + coef0)^degree), 2=radial basis function: exp(-gamma*|u-v|^2), 3=sigmoid: tanh(gamma*u'*v + coef0)" />
+    <item name="degree" type="INT" num="1" value="3" lock="false" help="degree" />
+    <item name="gamma" type="DOUBLE" num="1" value="2.222222e-003" lock="false" help="gamma" />
+    <item name="coef0" type="DOUBLE" num="1" value="0.000000e+000" lock="false" help="coef0" />
+    <item name="nu" type="DOUBLE" num="1" value="5.000000e-001" lock="false" help="nu in nu-SVC" />
+    <item name="C" type="DOUBLE" num="1" value="1.000000e-001" lock="false" help="cost in C-SVC" />
+    <item name="eps" type="DOUBLE" num="1" value="1.000000e-003" lock="false" help="set tolerance of termination criterion" />
+    <item name="p" type="DOUBLE" num="1" value="1.000000e-001" lock="false" help="epsilon in loss function of epsilon-SVR" />
+    <item name="shrink" type="INT" num="1" value="1" lock="false" help="whether to use the shrinking heuristics (0=false,1=true)" />
+    <item name="srand" type="UINT" num="1" value="0" lock="false" help="if >0 use fixed seed to initialize random number generator, otherwise timestamp will be used" />
+    <item name="balance" type="INT" num="1" value="0" lock="false" help="balance #samples per class (0=off, 1=remove surplus, 2=create missing)" />
+    <item name="silent" type="BOOL" num="1" value="false" lock="false" help="suppress libsvm messages" />
+</options>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<pipeline>
+	
+	<register>		
+		<load name="audio" depend="ssidialog.dll"/>
+		<load name="graphic" />				
+		<load name="model"/>		
+	</register>
+	
+	<!-- audio sensor initialization -->
+	<gate open="$(live)">
+		<sensor create="Audio" option="options/audio" sr="8000" scale="true">
+			<output channel="audio" pin="audio"/>		
+		</sensor>	
+	</gate>
+	<gate close="$(live)">
+		<sensor create="WavReader" path="$(file)" blockInSamples="512" scale="true" loop="true">
+			<output channel="audio" pin="audio"/>		
+		</sensor>	 
+	</gate>		
+		
+	<!-- activity detection -->
+	<transformer create="AudioActivity" method="0" threshold="0.05">
+		<input pin="audio" frame="0.03s" delta="0.015s"/>
+		<output pin="vad"/>
+	</transformer>
+	<consumer create="TriggerEventSender" triggerType="5" minDuration="0.3" maxDuration="5.0" incDuration="1.0" sendStartEvent="true" hangInSamples="3" hangOutSamples="10" address="vad@audio">
+		<input pin="vad" frame="0.1s"/>
+	</consumer>	
+	
+	<!-- feature extraction -->
+	<consumer create="TupleEventSender" address="feature@audio">
+		<input pin="audio" address="vad@audio" state="completed">
+			<transformer create="Chain" path="chains\$(model:chain)"/>
+		</input>
+	</consumer>
+	
+	<!-- classifier -->
+	<object create="Classifier" path="models\$(model:type).$(model:chain)" address="emotion@audio">
+		<listen address="feature@audio"/>
+	</object>	
+	
+	<!-- event sender -->
+	<object create="XMLEventSender" address="emovoice@xml" path="emovoice.xml" monitor="true" mname="RESULT" mpos="800,300,400,300" console="false" update="100" coldelim=" ">
+		<listen address="emotion@audio"/>
+	</object>
+		
+	<!-- bar plots -->
+	<object create="EventPainter:eplot" title="EMOTION" type="1" fix="1.0" global="true" autoscale="false">
+		<listen address="emotion@audio"/>
+	</object>
+	
+	<!-- visualization -->	
+	<consumer create="SignalPainter:plot" title="AUDIO - RAW" size="10" type="2" autoscale="false" fix="-1.0,1.0">
+		<input pin="audio" frame="0.02s"/>
+	</consumer>
+	<consumer create="SignalPainter:plot" title="AUDIO - ACTIVITY" size="10" type="0">
+		<input pin="vad" frame="0.02s"/>
+	</consumer>	
+	
+	<!-- wav output -->
+	<gate close="$(live)">
+		<consumer create="AudioPlayer" option="options\aplayer">
+			<input pin="audio" frame="0.1s"/>
+		</consumer>
+	</gate>
+	
+	<!-- decoration -->
+	<object create="Decorator" icon="true" title="Pipeline">
+		<area pos="0,0,400,600">console</area>
+		<area pos="400,0,400,600">eplot*</area>
+		<area pos="800,0,400,300">plot*</area>		
+		<area pos="800,300,400,300">monitor*</area>
+	</object>	
+		
+</pipeline>

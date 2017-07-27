@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<ssi>
+	<agender>
+		<voice>		
+			<gender>		
+				<male>$(gender(avg)@audio{select=0})</male>
+				<female>$(gender(avg)@audio{select=1})</female>				
+			</gender>
+			<age>
+				<child>$(age(avg)@audio{select=0})</child>
+				<youth>$(age(avg)@audio{select=1})</youth>
+				<adult>$(age(avg)@audio{select=2})</adult>
+				<senior>$(age(avg)@audio{select=3})</senior>			
+			</age>
+		</voice>
+	</agender>
+</ssi>
