@@ -11,8 +11,8 @@ SET MODEL=linsvm
 SET PIPELINE=emovoice
 
 call do_bin
-call do_vad %DATA_CHUNKS% %DATA_COMBINED% %RATE% %CLASSES%
-call do_samples %CHAIN%
+rem call do_vad %DATA_CHUNKS% %DATA_COMBINED% %RATE% %CLASSES%
+rem call do_samples %CHAIN%
 call do_eval %MODEL% %CHAIN% %DATA_COMBINED%
 call do_train %MODEL% %CHAIN% %DATA_COMBINED%
 call do_run %MODEL% %CHAIN%
