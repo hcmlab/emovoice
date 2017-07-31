@@ -15,7 +15,7 @@ Windows
 * openSMILE -- The Munich Versatile and Fast Open-Source Audio Feature Extractor - http://audeering.com/technology/opensmile/
 
 # Documentation
-https://rawgit.com/hcmlab/emovoice/tree/master/docs
+https://rawgit.com/hcmlab/emovoice/master/docs/index.html
 
 # Author
 Johannes Wagner, 2017
