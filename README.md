@@ -13,3 +13,9 @@ Windows
 * LIBSVM -- A Library for Support Vector Machines - https://www.csie.ntu.edu.tw/~cjlin/libsvm/
 * LIBLINEAR -- A Library for Large Linear Classification - https://www.csie.ntu.edu.tw/~cjlin/liblinear/
 * openSMILE -- The Munich Versatile and Fast Open-Source Audio Feature Extractor - http://audeering.com/technology/opensmile/
+
+# Documentation
+https://rawgit.com/hcmlab/emovoice/tree/master/docs
+
+# Author
+Johannes Wagner, 2017
