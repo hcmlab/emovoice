@@ -5,7 +5,8 @@ EmoVoice is a set of tools, which allow you to build your own real-time emotion 
 Windows
 
 # Dependencies
-Python 3
+* Visual Studio 2015 Redistributable (https://www.microsoft.com/en-us/download/details.aspx?id=52685)
+* Python 3.x (https://www.python.org/downloads/)
 
 # Credits
 * SSI -- Social Signal Interpretation Framework - http://openssi.net
