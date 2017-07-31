@@ -1,0 +1,219 @@
+<!doctype html>
+<html >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="template.css" />
+
+   <link href="templates/menu/css/video-js.css" rel="stylesheet" />
+
+
+
+<script src="templates/menu/js/jquery.min.js"></script>
+<script type='text/javascript' src='templates/menu/js/jquery.cookie.js'></script>
+<script type='text/javascript' src='templates/menu/js/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='templates/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+<link href="templates/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+<link href="templates/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+<link href="templates/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+  
+<script src="templates/menu/js/MathJax.js"></script>
+        
+  
+  <script src="templates/script.js"></script>
+  
+    <script src="templates/jquery.sticky-kit.js "></script>
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="" />
+  <title>EmoVoice Documentation</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="templates/template.css" type="text/css" />
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">EmoVoice Documentation</span>
+        <ul class="nav pull-right doc-info">
+                    <li><p class="navbar-text"></p></li>
+                              <li><p class="navbar-text">Johannes Wagner, Lab for Human Centered Multimedia, 31/07/2017</p></li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+        <li><a href="#overview"><span class="toc-section-number">2</span> Overview</a></li>
+        <li><a href="#before-you-start"><span class="toc-section-number">3</span> Before you start</a></li>
+        <li><a href="#audio-signal"><span class="toc-section-number">4</span> Audio Signal</a></li>
+        <li><a href="#data-preparation"><span class="toc-section-number">5</span> Data Preparation</a></li>
+        <li><a href="#feature-extraction"><span class="toc-section-number">6</span> Feature Extraction</a></li>
+        <li><a href="#classification-model"><span class="toc-section-number">7</span> Classification Model</a></li>
+        <li><a href="#online-recognition"><span class="toc-section-number">8</span> Online Recognition</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+            <h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<p>EmoVoice is a set of tools that allows you to build your own real-time emotional recognizers from acoustic properties of speech (not using word information). It is implemented with the <a href="http:\openssi.net">Social Signal Interpration (SSI)</a> framework and offers feature extraction, classifier building and testing, as well as, online recognition.</p>
+<p>EmoVoice was initally brought to life by Thurid Vogt and her dissertation on <a href="https://pub.uni-bielefeld.de/download/2301483/2301486">&quot;Real-time automatic emotion recognition from speech&quot;</a> provides a detailed description of the technology. The current implementation still supports the original feature set described in the thesis, though it is now possible to switch to other feature sets, too. In particular, it is possible to use the <a href="http://audeering.com/technology/opensmile/">openSMILE</a> feature extration tool. Likewise, in additional to the yet widely used <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">LibSVM</a> classifier, other classification models can be tested.</p>
+<p>If you use SSI in your research projects please reference the following paper:</p>
+<p><em>Johannes Wagner, Florian Lingenfelser, Tobias Baur, Ionut Damian, Felix Kistler, and Elisabeth André. 2013. The social signal interpretation (SSI) framework: multimodal signal processing and recognition in real-time. In Proceedings of the 21st ACM international conference on Multimedia (MM ’13). ACM, New York, NY, USA, 831-834. DOI=10.1145/2502081.2502223</em> [<a href="http://doi.acm.org/10.1145/2502081.2502223">pdf</a>]</p>
+<div class="sourceCode"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="va">@inproceedings</span>{<span class="ot">Wagner13</span>,
+ <span class="dt">author</span> = {Wagner, Johannes and Lingenfelser, Florian and Baur, Tobias and Damian, Ionut and Kistler, Felix and Andr{<span class="ch">\&#39;</span>e}, Elisabeth},
+ <span class="dt">title</span> = {The social signal interpretation (SSI) framework: multimodal signal processing and recognition in real-time},
+ <span class="dt">booktitle</span> = {Proceedings of the 21st ACM international conference on Multimedia},
+ <span class="dt">series</span> = {MM &#39;13},
+ <span class="dt">year</span> = {2013},
+ <span class="dt">isbn</span> = {978-1-4503-2404-5},
+ <span class="dt">location</span> = {Barcelona, Spain},
+ <span class="dt">pages</span> = {831--834},
+ <span class="dt">numpages</span> = {4},
+ <span class="dt">url</span> = {http://doi.acm.org/10.1145/2502081.2502223},
+ <span class="dt">doi</span> = {10.1145/2502081.2502223},
+ <span class="dt">acmid</span> = {2502223},
+ <span class="dt">publisher</span> = {ACM},
+ <span class="dt">address</span> = {New York, NY, USA},
+ <span class="dt">keywords</span> = {multimodal fusion, open source framework, real-time pattern recognition, social signal processing},
+}</code></pre></div>
+<h1 id="overview"><span class="header-section-number">2</span> Overview</h1>
+<p>The following figure gives an overview of the basic processing steps the raw audio signal is passed through, which are:</p>
+<ol style="list-style-type: decimal">
+<li>voice activity detection to find segments with speech (see <a href="#data-preparation">section</a>)</li>
+<li>extract a comprehensive set of speech features (see <a href="#feature-extraction">section</a>)</li>
+<li>train a classifier to map feature vectors onto a set of discrete classes (see <a href="#classification-model">section</a>)</li>
+</ol>
+<p>Once a classification model has been trained, it can be used to predict unseen speech chunks in real-time (see <a href="#online-recognition">section</a>).</p>
+<div class="figure">
+<img src="pics/overview.png" alt="Overview of EmoVoice: voice activity detection (VAD) is applied to segment the raw speech signal into speech chunks (top). Chunks are transformed into a compact feature representation (center) and a classification model is trained to map them onto a set of discrete classes." id="fig:overview" style="width:100.0%" />
+<p class="caption"><em>Overview of EmoVoice: voice activity detection (VAD) is applied to segment the raw speech signal into speech chunks (top). Chunks are transformed into a compact feature representation (center) and a classification model is trained to map them onto a set of discrete classes.</em></p>
+</div>
+<h1 id="before-you-start"><span class="header-section-number">3</span> Before you start</h1>
+<p>EmoVoice is primarily developed and tested on Windows systems. To use it on Unix-based platforms you will have to download and compile <a href="http://openssi.net">SSI</a> the code yourself. The following guide assumes you are using Windows. Also, EmoVoice does not come with a large audio corpus. For testing a script is provided to download data and train a classifier for seven basic emotions). However, we recommend to use your own recordings (if you opt to train a user-dependent model) or enlarge the amount of data. The quality of a classifier depends highly on the quality <em>AND</em> quantity of the data available for training. The more hours of speech and the more speakers (in case you opt for a speaker-independent system) the better!</p>
+<p>To start, check out the EmoVoice <a href="https://github.com/hcmlab/emovoice">repository</a> from Github and initially run the <code>do_bin.cmd</code> script. The core tools will be downloaded to the <code>bin\</code> folder. Whenever you wish to update EmoVoice to the latest version, re-run the script. Note that all other dependencies will be automatically resolved on-demand, so please make sure to have a stable internet connection while running EmoVoice.</p>
+<p>If you want to test EmoVoice or do not have an own corpus at hand, you may want to run the <code>do_data.cmd</code> script next. This will download the audio samples from the <a href="http://emodb.bilderbar.info/index-1024.html">Berlin Database of Emotional Speech</a>. The data was recorded as a part of the DFG funded research project SE462/3-1 in 1997 and 1999 and contains a database of emotional utterances spoken by actors. For more information check the references <a href="http://emodb.bilderbar.info/index-1024.html">here</a>. After running the script you will find folders for six basic emotions and neutral in the <code>data\\chunks</code> folder including 533 wav files (see next <a href="#audio-signal">section</a>).</p>
+<h1 id="audio-signal"><span class="header-section-number">4</span> Audio Signal</h1>
+<p>The input to EmoVoice are raw audio signals in the popular Waveform Audio File Format (commonly known as WAV due to its filename extension). Since the training of a classification model requires several hours of speech, it may be distributed across multiple files. The sample rate of the files should be at least 8 kHz and must not vary between files. Only mono audio (i.e. one channel) is supported.</p>
+<h1 id="data-preparation"><span class="header-section-number">5</span> Data Preparation</h1>
+<p>EmoVoice expects for each audio file another file that assigns to each speech segments a discrete class label, e.g. anger, happiness, sadness, etc. The format of the (discrete) annotation files are described <a href="https://rawgit.com/hcmlab/nova/master/docs/index.html#file-format">here</a>. If you have continuous audio recordings with varying emotional content, we recommend using our free open-source tool NOVA ((NOn)Verbal Annotator) to create the necessary annotation files. NOVA provides a graphical interface for annotating and can be downloaded from <a href="https://github.com/hcmlab/nova">here</a>. Please consult the <a href="https://rawgit.com/hcmlab/nova/master/docs/index.html">documentation</a> of NOVA to learn how to use the tool. For each audio file (.wav) create annotation file with the same name (.annotation) and copy all files the folder <code>data\combined\</code>.</p>
+<p>If you are using the default database or your corpus exists of chunked audio files (each expressing a single emotion), the tool 'vadanno.exe' (see <code>bin\</code> folder) can be used to prepare your data. The tool will combine the chunks to a single recording per class, apply Voice Activity Detection (VAD) and create the annotations. Therefore go to the <code>data\chunks\</code> folder and create a folder for each emotion class. Then copy your audio files to the according folders. Now, run the <code>do_vad.cmd</code> script with the following parameters:</p>
+<pre><code>&gt; do_vad data\chunks data\combined 16000 &quot;anger;boredom;disgust;fear;happiness;neutral;sadness&quot;</code></pre>
+<p>If you use your own data, replace the sample rate and the class names accordingly (make sure to quote the class names!). As a result in the <code>data\combined</code>folder you should now see a single wav file per class and according annotations. Open the files in <a href="https://github.com/hcmlab/nova">NOVA</a> to check the segmentation. If necessary, play around with the parameters in the 'activity.option' file (in the <code>data\chunks</code> folder). It allows to set the type of activity signal (0=loudness, 1=intensity, 2=signal-to-noise ratio) and the activity threshold (default=0.05). Re-run the script until you are happy with th result. Note that the method requires a clean speech signal with low background noise, ideally recorded with a head mounted microphone. If your recordings are too noisy consider using an external tool like <a href="http://www.audacityteam.org/">Audacity</a> to clean your files.</p>
+<h1 id="feature-extraction"><span class="header-section-number">6</span> Feature Extraction</h1>
+<p>During the feature extraction step, speech segments described the annotation will be transformed into a compact representation and labelled with the according emotional class. The result will be a sample list for each class stored to the <code>data\combined</code> folder. To start the feature extraction run the <code>do_samples.cmd</code> script with the desired feature set:</p>
+<pre><code>&gt; do_samples compare</code></pre>
+<p>The following feature sets are available (from the <code>chains\</code> folder):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Set</th>
+<th>#Features</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">emovoice</td>
+<td>1451</td>
+<td align="left">The original EmoVoice feature set described <a href="https://dl.acm.org/citation.cfm?id=1425679">here</a></td>
+</tr>
+<tr class="even">
+<td align="left">compare</td>
+<td>6373</td>
+<td align="left">The ComParE feature set described <a href="http://emotion-research.net/sigs/speech-sig/is2013_compare.pdf">here</a></td>
+</tr>
+<tr class="odd">
+<td align="left">gemaps</td>
+<td>58</td>
+<td align="left">The Geneva Minimalistic feature set described <a href="http://ieeexplore.ieee.org/document/7160715/">here</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="classification-model"><span class="header-section-number">7</span> Classification Model</h1>
+<p>To train the classification model call the <code>do_train.cmd</code> script. Two arguments are expected, which are the name of the classifier and the feature set (see last section):</p>
+<pre><code>&gt; do_train linsvm compare</code></pre>
+<p>All training data is used to build the model and the result can be found in the <code>models</code> folder under the name <code>&lt;model&gt;.&lt;feature&gt;.*</code>. To evaluate the quality of the model call the <code>do_eval</code> instead. This will use half of the data to train the model and evaluate with the other half (and vice versa). The result of the evaluation is a confusion matrix showing the accuracy for each class, as well as, the overall recognition rate. The output will be shown in the console and also stored to a file <code>models\&lt;model&gt;.&lt;feature&gt;.txt</code>. No model files will be created during the evaluation.</p>
+<pre><code>&gt; do_eval linsvm compare</code></pre>
+<p>The following classification models are available (from the <code>models\</code> folder):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Set</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">svm</td>
+<td align="left">Support Vector Machine classifier based on the <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">LibSVM</a> library</td>
+</tr>
+<tr class="even">
+<td align="left">linsvm</td>
+<td align="left">Linear Support Vector Machine classifier based on the [LibLinear]https://www.csie.ntu.edu.tw/~cjlin/liblinear/) library</td>
+</tr>
+</tbody>
+</table>
+<p>To tune the classifiers see the according <code>.option</code> files in the <code>model\</code> folder.</p>
+<h1 id="online-recognition"><span class="header-section-number">8</span> Online Recognition</h1>
+<p>Once a model has been trained it can be used to classify emotional speech in real-time. Therefore, a SSI pipeline named <code>emovoice.pipeline</code> has been added to the root folder of EmoVoice. To start the pipeline use the script <code>do_run</code> and again pass the model type and the feature set:</p>
+<pre><code>&gt; do_run linsvm compare</code></pre>
+<p>By default this will start the recognition on a file in the corpus. To change the path of the file or to test your model with live input from a microphone, open the file <code>emovoice.pipeline-config</code> in a text editor and change the option <code>audio:live</code>, <code>audio:file</code> and <code>audio:rate</code> accordingly. More information about SSI pipelines can be found in the official <a href="https://rawgit.com/hcmlab/ssi/master/docs/index.html#xml">documentation</a>.</p>
+            </div>
+    </div>
+  </div>
+  <script src="templates/menu/js/video.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<options>
+    <item name="address" type="CHAR" num="1024" value="vad@audio" lock="true" help="event address (event@sender)" />
+    <item name="triggerType" type="INT" num="1" value="5" lock="true" help="threshold type (0='>',1='>=',2='<',3='<=',4='==',5='!=',6=']..[',7='[..]',8='![..]',9='!]..[')" />
+    <item name="thresholdIn" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="threshold to trigger onset" />
+    <item name="thresholdOut" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="threshold to trigger offset" />
+    <item name="thresholdInEnd" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="end of interval to trigger onset (only applied if type is 6-9)" />
+    <item name="thresholdOutEnd" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="end of interval to trigger offset (only applied if type is 6-9)" />
+    <item name="hardThreshold" type="BOOL" num="1" value="false" lock="true" help="consider all dimensions to tigger on/offset" />
+    <item name="hangInDuration" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="minimum duration with only positive samples before an onset is triggered" />
+    <item name="hangOutDuration" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="minimum duration with only negative smaples before an offset is triggered" />
+    <item name="hangInSamples" type="UINT" num="1" value="3" lock="false" help="like 'hangInDuration' but given in #samples (overides if > 0)" />
+    <item name="hangOutSamples" type="UINT" num="1" value="10" lock="false" help="like 'hangOutDuration' but given in #samples (overides if > 0)" />
+    <item name="minDuration" type="DOUBLE" num="1" value="1.000000e-01" lock="false" help="if > 0 minimum duration in seconds (skip all shorter events)" />
+    <item name="incDuration" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="if > 0 incremental duration in seconds (incomplete events are sent when duration has passed and the current event is not yet finished)" />
+    <item name="maxDuration" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="if > 0 maximum duration in seconds (otherwise the start time of an event is moved forward)" />
+    <item name="offsetInDuration" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="lower offset in seconds (will be substracted from event start time)" />
+    <item name="offsetOutDuration" type="DOUBLE" num="1" value="0.000000e+00" lock="false" help="upper offset in seconds (will be added to event end time)" />
+    <item name="sendStartEvent" type="BOOL" num="1" value="false" lock="false" help="send a start event if onset is triggered" />
+    <item name="skipMaxDuration" type="BOOL" num="1" value="false" lock="false" help="skip events that exceed the max duration" />
+    <item name="eventType" type="INT" num="1" value="1" lock="true" help="event type (1=empty, 2=string [see 'eventString'], 3=map [see 'eventString', values are set to mean of input stream], 4=tuple [set to mean of input stream])" />
+    <item name="eventString" type="CHAR" num="1024" value="" lock="true" help="if event type is 'string' this will be the string that is sent, if event type is 'map' this will be key (if multiple keys separate by ';')" />
+</options>

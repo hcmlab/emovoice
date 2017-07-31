@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<options>
+    <item name="method" type="INT" num="1" value="0" lock="true" help="Activity method (0=loudness, 1=intensity, 2=signal-to-noise ratio" />
+    <item name="threshold" type="FLOAT" num="1" value="5.000000e-02" lock="false" help="Threshold to determine activity" />
+</options>

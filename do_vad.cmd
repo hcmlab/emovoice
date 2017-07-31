@@ -1,13 +1,13 @@
 @echo off
 
 SET ROOT=%~dp0
-SET CHUNKS_ROOT=%1
-SET COMBINED_ROOT=%2
-SET LIST=%CHUNKS_ROOT%list.txt
-SET RATE=%3
-SET CLASSES=%4
+SET DATA_CHUNKS=%ROOT%data\chunks\
+SET DATA_COMBINED=%ROOT%data\combined\
+SET LIST=%DATA_CHUNKS%list.txt
+SET RATE=%1
+SET CLASSES=%2
 
-python.exe python\mklist.py %CHUNKS_ROOT%
+python.exe python\mklist.py %DATA_CHUNKS%
 
-%ROOT%bin\vadanno.exe %CHUNKS_ROOT% %RATE% %COMBINED_ROOT% %LIST% %CLASSES%
+%ROOT%bin\vadanno.exe -silence 1.0 %DATA_CHUNKS% %RATE% %DATA_COMBINED% %LIST% %CLASSES%
 

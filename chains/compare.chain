@@ -4,6 +4,6 @@
 		<item name="opensmilewrapper" depend="openSmileLib_Release.dll"/>
 	</register>	
 	<feature>
-		<item create="OSWrapper" configFile="IS13.conf"/>
+		<item create="OSWrapper" configFile="compare.conf"/>
 	</feature>
 </chain>
