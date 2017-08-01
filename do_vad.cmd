@@ -9,5 +9,5 @@ SET CLASSES=%2
 
 python.exe python\mklist.py %DATA_CHUNKS%
 
-%ROOT%bin\vadanno.exe -silence 1.0 %DATA_CHUNKS% %RATE% %DATA_COMBINED% %LIST% %CLASSES%
+%ROOT%bin\vadanno.exe -silence 1.0 -nTest 3 %DATA_CHUNKS% %RATE% %DATA_COMBINED% %LIST% %CLASSES%
 

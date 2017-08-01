@@ -68,8 +68,8 @@
 	<!-- decoration -->
 	<object create="Decorator" icon="true" title="Pipeline">
 		<area pos="0,0,400,600">console</area>
-		<area pos="400,0,400,600">eplot*</area>
-		<area pos="800,0,400,300">plot*</area>		
+		<area pos="400,0,800,300">eplot*</area>
+		<area pos="400,300,400,300">plot*</area>		
 		<area pos="800,300,400,300">monitor*</area>
 	</object>	
 		

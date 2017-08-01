@@ -1,5 +1,5 @@
 audio:live = false 										# $(bool) use live input from a microphone
-audio:file = data\combined\anger.wav  	     			# if not live input read in from this file
+audio:file = data\combined\test.wav  	     			# if not live input read in from this file
 audio:rate = 16000										# sample rate in Hz (if live audio is used)
 
 # classification

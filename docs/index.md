@@ -48,8 +48,8 @@ Once a classification model has been trained, it can be used to predict unseen s
 
 EmoVoice is primarily developed and tested on Windows systems. To use it on Unix-based platforms you will have to download and compile [SSI](http://openssi.net) the code yourself. The following guide assumes you are using Windows. Also, EmoVoice does not come with a large audio corpus. For testing a script is provided to download data and train a classifier for seven basic emotions). However, we recommend to use your own recordings (if you opt to train a user-dependent model) or enlarge the amount of data. The quality of a classifier depends highly on the quality *AND* quantity of the data available for training. The more hours of speech and the more speakers (in case you opt for a speaker-independent system) the better!
 
-To start, check out the EmoVoice [repository](https://github.com/hcmlab/emovoice) from Github and initially run the `do_bin.cmd` script. The core tools will be downloaded to the `bin\` folder. Whenever you wish to update EmoVoice to the latest version, re-run the script. Note that all other dependencies will be automatically resolved on-demand, so please make sure to have a stable internet connection while running EmoVoice.
-
+Before you start, make sure [Python 3.x](https://www.python.org/downloads/) is installed and has been added to the `%PATH%` variable (you can choose this during the installation). Note that the scripts will not work with older versions of Python. Also make sure [Visual Studio 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=52685) is installed on your system. Now, check out the EmoVoice [repository](https://github.com/hcmlab/emovoice) from Github and run the `do_bin.cmd` script. This will download the core tools to the `bin\` folder. Whenever you wish to update EmoVoice to the latest version, re-run the script. Note that all other dependencies will be automatically resolved on-demand, so please make sure to have a stable internet connection while running EmoVoice.
+ 
 If you want to test EmoVoice or do not have an own corpus at hand, you may want to run the `do_data.cmd` script next. This will download the audio samples from the [Berlin Database of Emotional Speech](http://emodb.bilderbar.info/index-1024.html). The data was recorded as a part of the DFG funded research project SE462/3-1 in 1997 and 1999 and contains a database of emotional utterances spoken by actors. For more information check the references [here](http://emodb.bilderbar.info/index-1024.html). After running the script you will find folders for six basic emotions and neutral in the `data\\chunks` folder including 533 wav files (see next [section](#audio-signal)).
 
 # Audio Signal {#audio-signal}
@@ -63,7 +63,7 @@ EmoVoice expects for each audio file another file that assigns to each speech se
 If you are using the default database or your corpus exists of chunked audio files (each expressing a single emotion), the tool 'vadanno.exe' (see `bin\` folder) can be used to prepare your data. The tool will combine the chunks to a single recording per class, apply Voice Activity Detection (VAD) and create the annotations. Therefore go to the `data\chunks\` folder and create a folder for each emotion class. Then copy your audio files to the according folders. Now, run the `do_vad.cmd` script with the following parameters:
 
 ```
-> do_vad data\chunks data\combined 16000 "anger;boredom;disgust;fear;happiness;neutral;sadness"
+> do_vad 16000 "anger;boredom;disgust;fear;happiness;neutral;sadness"
 ```
 
 If you use your own data, replace the sample rate and the class names accordingly (make sure to quote the class names!). As a result in the `data\combined`folder you should now see a single wav file per class and according annotations. Open the files in [NOVA](https://github.com/hcmlab/nova) to check the segmentation. If necessary, play around with the parameters in the 'activity.option' file (in the `data\chunks` folder). It allows to set the type of activity signal (0=loudness, 1=intensity, 2=signal-to-noise ratio) and the activity threshold (default=0.05). Re-run the script until you are happy with th result. Note that the method requires a clean speech signal with low background noise, ideally recorded with a head mounted microphone. If your recordings are too noisy consider using an external tool like [Audacity](http://www.audacityteam.org/) to clean your files.
@@ -103,7 +103,7 @@ The following classification models are available (from the `models\` folder):
 Set       Description
 --------  ------------------------------------------------------
 svm	  	  Support Vector Machine classifier based on the [LibSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) library
-linsvm    Linear Support Vector Machine classifier based on the [LibLinear]https://www.csie.ntu.edu.tw/~cjlin/liblinear/) library
+linsvm    Linear Support Vector Machine classifier based on the [LibLinear](https://www.csie.ntu.edu.tw/~cjlin/liblinear/) library
 
 To tune the classifiers see the according `.option` files in the `model\` folder.
 
