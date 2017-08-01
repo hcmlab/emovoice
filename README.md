@@ -20,6 +20,7 @@ https://rawgit.com/hcmlab/emovoice/master/docs/index.html
 * LIBSVM -- A Library for Support Vector Machines - https://www.csie.ntu.edu.tw/~cjlin/libsvm/
 * LIBLINEAR -- A Library for Large Linear Classification - https://www.csie.ntu.edu.tw/~cjlin/liblinear/
 * openSMILE -- The Munich Versatile and Fast Open-Source Audio Feature Extractor - http://audeering.com/technology/opensmile/
+* Emo-DB -- Berlin Database of Emotional Speech - http://emodb.bilderbar.info/start.html
 
 # Author
 Johannes Wagner, Lab for Human Centered Multimedia, 2017
