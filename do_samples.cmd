@@ -5,7 +5,7 @@ SET DATA_ROOT=%ROOT%data\combined\
 SET CHAIN_ROOT=%ROOT%chains\
 
 SET CHAIN=%1
-SET N_PARALLEL=8
+SET N_PARALLEL=4
 SET STREAM_EXT=.wav
 
 SET ANNO_LIST=%DATA_ROOT%~anno.txt
@@ -22,6 +22,7 @@ for /r %DATA_ROOT% %%i in (%ANNO%*.annotation) do (
 	echo %%~dpni.%CHAIN% >> %SAMPLE_LIST%
 )
 
+echo %ROOT%bin\xmlchain.exe -list -anno %ANNO_LIST% -parallel %N_PARALLEL%  %CHAIN_ROOT%%CHAIN% %STREAM_LIST% %SAMPLE_LIST%
 %ROOT%bin\xmlchain.exe -list -anno %ANNO_LIST% -parallel %N_PARALLEL%  %CHAIN_ROOT%%CHAIN% %STREAM_LIST% %SAMPLE_LIST%
 
 DEL %ANNO_LIST%
