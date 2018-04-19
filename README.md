@@ -22,5 +22,9 @@ https://rawgit.com/hcmlab/emovoice/master/docs/index.html
 * openSMILE -- The Munich Versatile and Fast Open-Source Audio Feature Extractor - http://audeering.com/technology/opensmile/
 * Emo-DB -- Berlin Database of Emotional Speech - http://emodb.bilderbar.info/start.html
 
+# License
+The framework is released under LGPL (see LICENSE).
+Please note custom license files for the plug-ins (see LICENSE.*).
+
 # Author
 Johannes Wagner, Lab for Human Centered Multimedia, 2017
