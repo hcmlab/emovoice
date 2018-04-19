@@ -5,7 +5,12 @@
 		<load name="audio" depend="ssidialog.dll"/>
 		<load name="graphic" />				
 		<load name="model"/>		
+		<load name="ioput"/>		
 	</register>
+	
+	<gate close="$(audio:loop)">
+		<framework waitid="reader"/>
+	</gate>
 	
 	<!-- audio sensor initialization -->
 	<gate open="$(audio:live)">
@@ -14,7 +19,7 @@
 		</sensor>	
 	</gate>
 	<gate close="$(audio:live)">
-		<sensor create="WavReader" path="$(audio:file)" blockInSamples="512" scale="true" loop="true">
+		<sensor create="WavReader:reader" path="$(audio:file)" blockInSamples="512" scale="true" loop="$(audio:loop)">
 			<output channel="audio" pin="audio"/>		
 		</sensor>	 
 	</gate>		
@@ -24,21 +29,31 @@
 		<input pin="audio" frame="0.03s" delta="0.015s"/>
 		<output pin="vad"/>
 	</transformer>
-	<consumer create="TriggerEventSender" option="data\chunks\trigger" address="vad@audio">
+	<consumer create="TriggerEventSender" option="data\chunks\trigger" address="vad@audio" minDuration="1.0" incDuration="0.5" maxDuration="5.0">
 		<input pin="vad" frame="0.1s"/>
 	</consumer>	
 	
 	<!-- feature extraction -->
 	<consumer create="TupleEventSender" address="feature@audio">
-		<input pin="audio" address="vad@audio" state="completed">
+		<input pin="audio" address="vad@audio">
 			<transformer create="Chain" path="chains\$(model:chain)"/>
 		</input>
 	</consumer>
 	
 	<!-- classifier -->
-	<object create="Classifier" path="models\$(model:type).$(model:chain)" address="emotion@audio">
-		<listen address="feature@audio"/>
-	</object>	
+	<gate open="$(model:incremental)">		
+		<object create="Classifier" path="models\$(model:type).$(model:chain)" address="emotion-raw@audio">
+			<listen address="feature@audio"/>
+		</object>	
+		<object create="DecisionSmoother" address="emotion@audio" update="250" decay="0.01" speed="0.1" window="3.0" average="true">
+			<listen address="emotion-raw@audio"/>
+		</object>		
+	</gate>
+	<gate close="$(model:incremental)">
+		<object create="Classifier" path="models\$(model:type).$(model:chain)" address="emotion@audio">
+			<listen address="feature@audio" state="completed"/>
+		</object>	
+	</gate>
 	
 	<!-- event sender -->
 	<object create="XMLEventSender" address="emovoice@xml" path="emovoice.xml" monitor="true" mname="RESULT" mpos="800,300,400,300" console="false" update="100" coldelim=" ">
@@ -47,6 +62,10 @@
 		
 	<!-- bar plots -->
 	<object create="EventPainter:eplot" title="EMOTION" type="1" fix="1.0" global="true" autoscale="false">
+		<listen address="emotion@audio"/>
+	</object>
+	
+	<object create="FileEventWriter" path="result">
 		<listen address="emotion@audio"/>
 	</object>
 	
