@@ -1,6 +1,8 @@
 # EmoVoice
 EmoVoice is a set of tools, which allow you to build your own real-time emotion recognizer based on acoustic properties of speech (not using word information).
 
+[![EmoVoice](http://img.youtube.com/vi/wVfsHDdDJJ0/0.jpg)](http://www.youtube.com/watch?v=wVfsHDdDJJ0 "EmoVoice")
+
 # Platform
 Windows
 
