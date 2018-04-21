@@ -56,7 +56,7 @@
 	</gate>
 	
 	<!-- event sender -->
-	<object create="XMLEventSender" address="emovoice@xml" path="emovoice.xml" monitor="true" mname="RESULT" mpos="800,300,400,300" console="false" update="100" coldelim=" ">
+	<object create="XMLEventSender:monitor" address="emovoice@xml" path="emovoice.xml" monitor="true" mname="RESULT" console="false" update="100" coldelim=" ">
 		<listen address="emotion@audio"/>
 	</object>
 		
