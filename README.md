@@ -3,6 +3,8 @@ EmoVoice is a set of tools, which allow you to build your own real-time emotion 
 
 [![EmoVoice](https://raw.githubusercontent.com/hcmlab/emovoice/master/pics/emovoice.png)](http://www.youtube.com/watch?v=wVfsHDdDJJ0 "EmoVoice"){:target="_blank"}
 
+<a href="http://www.youtube.com/watch?v=wVfsHDdDJJ0" target="blank"><img src="https://raw.githubusercontent.com/hcmlab/emovoice/master/pics/emovoice.png"/></a>
+
 # Platform
 Windows
 
