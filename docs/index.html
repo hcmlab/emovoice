@@ -31,7 +31,6 @@
   
     <script src="templates/jquery.sticky-kit.js "></script>
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="" />
   <title>EmoVoice Documentation</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -81,7 +80,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="container">
         <span class="doc-title">EmoVoice Documentation</span>
         <ul class="nav pull-right doc-info">
-                    <li><p class="navbar-text"></p></li>
                               <li><p class="navbar-text">Johannes Wagner, Lab for Human Centered Multimedia, 31/07/2017</p></li>
                   </ul>
       </div>
@@ -111,7 +109,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>EmoVoice was initally brought to life by Thurid Vogt and her dissertation on <a href="https://pub.uni-bielefeld.de/download/2301483/2301486">&quot;Real-time automatic emotion recognition from speech&quot;</a> provides a detailed description of the technology. The current implementation still supports the original feature set described in the thesis, though it is now possible to switch to other feature sets, too. In particular, it is possible to use the <a href="http://audeering.com/technology/opensmile/">openSMILE</a> feature extration tool. Likewise, in additional to the yet widely used <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">LibSVM</a> classifier, other classification models can be tested.</p>
 <p>If you use SSI in your research projects please reference the following paper:</p>
 <p><em>Johannes Wagner, Florian Lingenfelser, Tobias Baur, Ionut Damian, Felix Kistler, and Elisabeth André. 2013. The social signal interpretation (SSI) framework: multimodal signal processing and recognition in real-time. In Proceedings of the 21st ACM international conference on Multimedia (MM ’13). ACM, New York, NY, USA, 831-834. DOI=10.1145/2502081.2502223</em> [<a href="http://doi.acm.org/10.1145/2502081.2502223">pdf</a>]</p>
-<div class="sourceCode"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="va">@inproceedings</span>{<span class="ot">Wagner13</span>,
+<div class="sourceCode"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="kw">@inproceedings</span>{<span class="ot">Wagner13</span>,
  <span class="dt">author</span> = {Wagner, Johannes and Lingenfelser, Florian and Baur, Tobias and Damian, Ionut and Kistler, Felix and Andr{<span class="ch">\&#39;</span>e}, Elisabeth},
  <span class="dt">title</span> = {The social signal interpretation (SSI) framework: multimodal signal processing and recognition in real-time},
  <span class="dt">booktitle</span> = {Proceedings of the 21st ACM international conference on Multimedia},
@@ -178,6 +176,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">gemaps</td>
 <td>58</td>
 <td align="left">The Geneva Minimalistic feature set described <a href="http://ieeexplore.ieee.org/document/7160715/">here</a></td>
+</tr>
+<tr class="even">
+<td align="left">soundnet</td>
+<td>256</td>
+<td align="left">The features learned in the <code>conv5</code> layer of SoundNet described <a href="http://soundnet.csail.mit.edu/">here</a></td>
 </tr>
 </tbody>
 </table>
