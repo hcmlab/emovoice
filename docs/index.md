@@ -83,7 +83,7 @@ Set       #Features  Description
 emovoice  1451	     The original EmoVoice feature set described [here](https://dl.acm.org/citation.cfm?id=1425679)
 compare	  6373		 The ComParE feature set described [here](http://emotion-research.net/sigs/speech-sig/is2013_compare.pdf)
 gemaps	  58		 The Geneva Minimalistic feature set described [here](http://ieeexplore.ieee.org/document/7160715/)
-soundnet  256        The features learned in the `conv5` layer of SoundNet described [here](http://soundnet.csail.mit.edu/)
+soundnet  128        The features learned in the `conv4` layer of SoundNet described [here](http://soundnet.csail.mit.edu/)
 
 # Classification Model {#classification-model}
 

@@ -1,0 +1,36 @@
+layer n_features name
+--------------------------
+
+1	16	conv1
+2	16	batch_norm
+3	16	relu
+4	16	maxpool
+
+5	32	conv2
+6	32	batch_norm
+7	32	relu
+8	32	maxpool
+
+9	64	conv3
+10	64	batch_norm
+11	64	relu
+
+12	128	conv4
+13	128	batch_norm
+14	128	relu *
+        
+15	256	conv5
+16	256	batch_norm
+17	256 relu
+18	256 maxpool
+        
+19	512 conv6
+20	512 batch_norm
+21	512 relu
+        
+22	1024 conv7
+23	1024 batch_norm
+24	1024 relu
+
+25	1000 conv8
+26	401	 conv8_2

@@ -4,6 +4,6 @@
 		<item name="python"/>
 	</register>	
 	<feature>
-		<item create="PythonFeature" script="soundnet" syspath="." optsstr="layer=18;n_feature=256;n_samples=7350"/>
+		<item create="PythonFeature" script="soundnet" syspath="." optsstr="layer=14"/>
 	</feature>
 </chain>

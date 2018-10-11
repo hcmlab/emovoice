@@ -24,6 +24,33 @@ from soundnet_model import Model
 
 SAMPLE_RATE = 22050
 
+N_FEATURES = [
+16,
+16,
+16,
+16,
+32,
+32,
+32,
+32,
+64,
+64,
+64,
+128,
+128,
+128,
+256,
+256,
+256,
+256,
+512,
+512,
+512,
+1024,
+1024,
+1024,
+1000,
+401]
 
 def error(text):
     print('ERROR: ' + text)
@@ -37,7 +64,7 @@ def getOptions(opts,vars):
 
     opts['path'] = './sound8.npy'
     opts['layer'] = 18
-    opts['n_feature'] = 256
+    #opts['n_feature'] = 256
     opts['n_samples'] = 7350 # minimum length
 
     vars['model'] = None
@@ -125,7 +152,7 @@ def preprocess(raw_audio, sr, opts, vars):
 
 def getSampleDimensionOut(dim, opts, vars):
 
-    return opts['n_feature']
+    return N_FEATURES[opts['layer']-1]
 
 
 def getSampleTypeOut(type, types, opts, vars): 
