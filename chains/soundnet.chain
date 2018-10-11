@@ -1,0 +1,9 @@
+<chain>
+	<meta frameStep="40ms" leftContext="480ms" rightContext="480ms"/>
+	<register>		
+		<item name="python"/>
+	</register>	
+	<feature>
+		<item create="PythonFeature" script="soundnet" syspath="." optsstr="layer=18;n_feature=256;n_samples=7350"/>
+	</feature>
+</chain>

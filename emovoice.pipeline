@@ -44,7 +44,7 @@
 	<object create="XMLEventSender" address="emovoice@xml" path="emovoice.xml" monitor="true" mname="RESULT" mpos="800,300,400,300" console="false" update="100" coldelim=" ">
 		<listen address="emotion@audio"/>
 	</object>
-		
+	
 	<!-- bar plots -->
 	<object create="EventPainter:eplot" title="EMOTION" type="1" fix="1.0" global="true" autoscale="false">
 		<listen address="emotion@audio"/>
@@ -72,5 +72,14 @@
 		<area pos="400,300,400,300">plot*</area>		
 		<area pos="800,300,400,300">monitor*</area>
 	</object>	
+		
+
+	<register>	
+		<load name="ioput"/>			
+	</register>
+	<object create="FileEventWriter" path="emovoice">
+		<listen address="emotion@audio"/>
+	</object>
+				
 		
 </pipeline>

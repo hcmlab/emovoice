@@ -8,7 +8,6 @@ SET CHAIN=compare
 SET MODEL=linsvm
 SET PIPELINE=emovoice
 
-call do_bin
 call do_data
 call do_vad %RATE% %CLASSES%
 call do_samples %CHAIN%
