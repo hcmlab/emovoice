@@ -6,13 +6,9 @@ EmoVoice is a set of tools, which allow you to build your own real-time emotion 
 
 Windows
 
-# Dependencies
-
-* Visual Studio 2015 Redistributable (https://www.microsoft.com/en-us/download/details.aspx?id=52685)
-
 # Installation
 
-Run `install.cmd`. It will download core binaries and install embedded Python for you.
+Make sure [Visual Studio 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=52685) is installed on your machine. Then run `install.cmd` to download core binaries and install an embedded version of Python.
 
 If you plan to extract SoundNet features, you will also have to execute `install_tensorflow.cmd` and download the file [sound8.npy](https://drive.google.com/uc?export=download&id=0B9wE6h4m--wjR015M1RLZW45OEU) into the `chains` folder.
 
