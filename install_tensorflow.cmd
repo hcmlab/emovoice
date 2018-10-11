@@ -10,4 +10,3 @@ set /p GPU=<%DST%has_gpu.txt
 %DST%Scripts\pip.exe install tensorflow%GPU%==1.8.0
 %DST%Scripts\pip.exe install librosa
 
-%DST%wget.exe https://drive.google.com/uc?export=download&id=0B9wE6h4m--wjR015M1RLZW45OEU -O %DST%chains\sound8.py

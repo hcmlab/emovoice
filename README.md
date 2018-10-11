@@ -10,10 +10,11 @@ Windows
 
 * Visual Studio 2015 Redistributable (https://www.microsoft.com/en-us/download/details.aspx?id=52685)
 
-# Quick Guide
+# Installation
 
-* `install.cmd` -- download core binaries and install embedded Python
-* `install_soundnet.cmd` -- install Tensorflow and download SoundNet model (only if you plan to extract SoundNet features)
+Run `install.cmd`. It will download core binaries and install embedded Python for you.
+
+If you plan to extract SoundNet features, you will also have to execute `install_tensorflow.cmd` and download the file [sound8.npy](https://drive.google.com/uc?export=download&id=0B9wE6h4m--wjR015M1RLZW45OEU) into the `chains` folder.
 
 # Documentation
 
