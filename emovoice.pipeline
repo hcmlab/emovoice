@@ -84,6 +84,11 @@
 		</consumer>
 	</gate>
 	
+	<!-- event output -->
+	<object create="FileEventWriter" path="emovoice">
+		<listen address="emotion@audio"/>
+	</object>
+	
 	<!-- decoration -->
 	<object create="Decorator" icon="true" title="Pipeline">
 		<area pos="0,0,400,600">console</area>
@@ -91,14 +96,5 @@
 		<area pos="400,300,400,300">plot*</area>		
 		<area pos="800,300,400,300">monitor*</area>
 	</object>	
-		
-
-	<register>	
-		<load name="ioput"/>			
-	</register>
-	<object create="FileEventWriter" path="emovoice">
-		<listen address="emotion@audio"/>
-	</object>
-				
-		
+	
 </pipeline>
