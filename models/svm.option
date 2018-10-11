@@ -12,5 +12,5 @@
     <item name="shrink" type="INT" num="1" value="1" lock="false" help="whether to use the shrinking heuristics (0=false,1=true)" />
     <item name="srand" type="UINT" num="1" value="0" lock="false" help="if >0 use fixed seed to initialize random number generator, otherwise timestamp will be used" />
     <item name="balance" type="INT" num="1" value="0" lock="false" help="balance #samples per class (0=off, 1=remove surplus, 2=create missing)" />
-    <item name="silent" type="BOOL" num="1" value="false" lock="false" help="suppress libsvm messages" />
+    <item name="silent" type="BOOL" num="1" value="true" lock="false" help="suppress libsvm messages" />
 </options>
