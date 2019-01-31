@@ -1,7 +1,9 @@
 @echo off
 
 SET ROOT=%~dp0
-SET DATA_ROOT=%ROOT%data\combined\
+SET CORPUS=combined
+if not "%2"== "" SET CORPUS=%2
+SET DATA_ROOT=%ROOT%data\%CORPUS%\
 SET CHAIN_ROOT=%ROOT%chains\
 
 SET CHAIN=%1
