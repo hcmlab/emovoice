@@ -6,6 +6,8 @@ data/**
 !data/chunks/trigger.option
 .*annotation~
 .*annotation
+*.option
+*.events
 
 
 #BINARIES
@@ -212,6 +214,3 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
-# Pyre type checker
-.pyre/
