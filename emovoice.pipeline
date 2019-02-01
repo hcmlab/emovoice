@@ -13,11 +13,21 @@
 	</gate>
 	
 	<!-- audio sensor initialization -->
-	<gate open="$(audio:live)">
-		<sensor create="Audio" option="options/audio" sr="$(audio:sr)" scale="true">
-			<output channel="audio" pin="audio"/>		
-		</sensor>	
+	<gate open="$(audio:live)">	
+		<gate open="$(audio:live:mic)">	
+			<sensor create="Audio" option="options/audio" sr="$(audio:rate)" scale="true">
+				<output channel="audio" pin="audio"/>		
+			</sensor>	
+		</gate>
+		<gate close="$(audio:live:mic)">	
+			<sensor create="AudioLoopBack" option="options/loopback" sr="$(audio:rate)" scale="true">
+				<output channel="audio" pin="audio">			
+					<transformer create="Selector" indices="0"/>
+				</output>
+			</sensor>
+		</gate>
 	</gate>
+	
 	<gate close="$(audio:live)">
 		<sensor create="WavReader:reader" path="$(audio:file)" blockInSamples="512" scale="true" loop="$(audio:loop)">
 			<output channel="audio" pin="audio"/>		

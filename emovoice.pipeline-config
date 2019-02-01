@@ -1,4 +1,5 @@
 audio:live = false 										# $(bool) use live input from a microphone
+audio:live:mic = true									# using an external microphone in case of the live pipeline
 audio:rate = 16000										# sample rate in Hz (if live audio is used)
 audio:file = data\combined\test.wav  	     			# if not live input read in from this file
 audio:loop = true										# $(bool) loop audio file
